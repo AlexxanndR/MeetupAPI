@@ -21,9 +21,7 @@ namespace MeetupAPI.Repositories
         }
         public async Task<T> GetByIdAsync(long id)
         {
-            var result = await dbContext.Set<T>().FindAsync(id);
-
-            return result;
+            return await dbContext.Set<T>().FindAsync(id);
         }
 
         public async Task<long> AddAsync(T entity)
@@ -40,9 +38,13 @@ namespace MeetupAPI.Repositories
 
             if (result != null)
             {
-/*                Type type = typeof(T);
-                PropertyInfo[] properties = type.GetProperties();
-                */
+                var newProps = entity.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+                var oldProps = result.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public);
+
+                for (int i = 0; i < newProps.Length; i++)
+                    if (oldProps[i].Name != "Id")
+                        oldProps[i].SetValue(result, newProps[i].GetValue(entity));
+                
                 await dbContext.SaveChangesAsync();
 
                 return true;

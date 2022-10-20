@@ -35,7 +35,10 @@ namespace MeetupAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddMeetup([FromBody] Meetup meetup)
         {
-            var id = await meetupRepository.AddAsync(meetup);
+            if (meetup.Id != 0)
+                return StatusCode(500, "Cannot insert explicit value for identity column.");
+
+            await meetupRepository.AddAsync(meetup);
 
             return Ok();
         }
@@ -44,6 +47,9 @@ namespace MeetupAPI.Controllers
         [Route("{id:long}")]
         public async Task<IActionResult> UpdateMeetup([FromRoute] long id, [FromBody] Meetup meetup)
         {
+            if (meetup.Id != 0)
+                return StatusCode(500, "Cannot update explicit value for identity column.");
+
             var result = await meetupRepository.UpdateAsync(id, meetup);
 
             return result != false ? Ok() : NotFound();
