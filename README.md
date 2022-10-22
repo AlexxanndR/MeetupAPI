@@ -1,4 +1,6 @@
-#  Instruction
+# MeetupAPI
+
+##  Instruction
 
 1. .NET 6.0 is required to run the project.<br>
 2. For ease of checking CRUD operations, the "Authorize" attribute before the controller should be commented out.<br> 
