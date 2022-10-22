@@ -1,6 +1,6 @@
 ﻿using MeetupAPI.Data;
+using MeetupAPI.Entities;
 using MeetupAPI.Interfaces;
-using MeetupAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

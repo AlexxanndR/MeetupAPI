@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MeetupAPI.Models
+namespace MeetupAPI.Entities
 {
     public class BaseEntity
     {

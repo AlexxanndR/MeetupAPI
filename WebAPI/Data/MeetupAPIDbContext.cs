@@ -1,4 +1,4 @@
-﻿using MeetupAPI.Models;
+﻿using MeetupAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeetupAPI.Data

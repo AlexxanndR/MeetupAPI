@@ -1,6 +1,6 @@
 ﻿namespace MeetupAPI.Models
 {
-    public class Meetup : BaseEntity
+    public class MeetupModel
     {
         public string Name { get; set; }
 
