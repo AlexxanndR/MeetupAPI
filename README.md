@@ -9,4 +9,4 @@
 4. The access token is obtained using POSTMAN.<br>
 ![GetToken](Images/Instruction/GetToken.png)<br>
 5. With further use of HTTP methods, the received token must be indicated.<br>
-![ЕokenUsage](Images/Instruction/TokenUsage.png)<br>
+![TokenUsage](Images/Instruction/TokenUsage.png)<br>

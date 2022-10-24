@@ -1,6 +1,8 @@
-﻿namespace MeetupAPI.Interfaces
+﻿using MeetupAPI.Entities;
+
+namespace MeetupAPI.Interfaces
 {
-    public interface IEfRepository<T>
+    public interface IEfRepository<T> where T : BaseEntity
     {
         Task<List<T>> GetAllAsync();
         Task<T> GetByIdAsync(long id);
